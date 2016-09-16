@@ -30,9 +30,8 @@ LOCAL_SRC_FILES := \
         src/hw_ar3k.c \
         src/bt_vendor_persist.cpp
 
-# By default, "ENABLE_FM_OVER_UART" is un-defined.
-# To enable the feature, set it as "true" in "BoardConfig.mk".
-ifeq ($(ENABLE_FM_OVER_UART), true)
+#Disable this flag in case if FM over UART support not needed
+ifneq ($(findstring true,$(QCOM_BT_FM_OVER_UART)$(ENABLE_FM_OVER_UART)),)
 LOCAL_CFLAGS := -DFM_OVER_UART
 endif
 
