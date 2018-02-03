@@ -1,3 +1,3 @@
-ifeq ($(call is-vendor-board-platform,QCOM),true)
+ifneq ($(call is-qcom-hardware),)
 include $(call all-named-subdir-makefiles,libbt-vendor)
-endif # is-vendor-board-platform
+endif # is-qcom-hardware
